@@ -12,6 +12,33 @@ const CATEGORIES = [
   { id: 'other',    label: 'その他',     emoji: '⭐' },
 ]
 
+const PRESET_STEPS = {
+  '海外に一人旅をする': ['パスポートを取得・更新する', '行き先を1か国決める', '航空券・宿を予約する', '旅行保険に加入する', '出発！帰国後に記録をつける'],
+  '富士山に登る': ['体力づくりを3か月続ける', '登山グッズ（靴・レインウェア）を揃える', '低山でトレーニング登山する', '富士山の登山シーズン（7〜9月）を確認する', '登山ルートを予約・出発する'],
+  '温泉地を10か所制覇する': ['行きたい温泉地リストを10か所作る', '最初の1か所を予約・訪問する', '訪問記録をつけはじめる', '5か所達成', '10か所制覇'],
+  '沖縄の海でシュノーケリング': ['沖縄行きの時期を決める（7〜9月がベスト）', '航空券・宿を予約する', 'シュノーケルセットを準備する', '現地でツアーに申込む', '沖縄の海に飛び込む'],
+  '全国47都道府県を制覇する': ['現在行ったことがある都道府県を数える', '未訪問の近場から計画を立てる', '25都道府県達成', '残り10県を計画する', '47都道府県完全制覇'],
+  'フルマラソンを完走する': ['毎日30分ウォーキングを1か月続ける', '5kmを走れるようになる', '10kmレースに出場する', 'ハーフマラソンを完走する', 'フルマラソンにエントリーして完走'],
+  '体脂肪率15%以下を達成する': ['現在の体脂肪率を測定・記録する', '食事記録を2週間つける', '筋トレを週3回習慣にする', '有酸素運動を週2回追加する', '体脂肪率15%以下を達成する'],
+  '筋トレを1年続ける': ['ジムを探して入会する', '1か月継続する', '3か月継続する', '半年（180日）継続する', '1年（365日）達成'],
+  '禁酒を3か月続ける': ['飲酒ゼロの日を週2日作る', '1か月間禁酒を達成する', '2か月継続する', '3か月完全禁酒達成'],
+  'ギターを弾けるようになる': ['ギターを購入する', 'コードC・G・Amを覚える', '好きな曲のコードを練習する', '1曲を最初から最後まで弾く', '人前で演奏する'],
+  '英語で日常会話ができるようになる': ['英語学習アプリを毎日15分始める', '英単語1000語を覚える', 'オンライン英会話を週1回始める', '外国人と10分会話できるようになる', '日常会話がスラスラできるようになる'],
+  '料理を1品マスターする': ['作りたい料理を1つ決める', 'レシピを調べて材料を買う', '3回作って慣れる', '自分流にアレンジしてみる', '誰かに食べさせて「おいしい」をもらう'],
+  'プログラミングで何か作る': ['作りたいものを1つ決める', '学習教材を1つ選ぶ', '基礎文法を2週間で学ぶ', '小さなアプリを作り始める', 'デプロイして公開する'],
+  '友達を100人作る': ['今の友達リストを数える', '知人に声をかけて飲み会を1回企画する', '新しいコミュニティに1つ参加する', '50人突破', '100人達成'],
+  '行きつけのバーを作る': ['近所のバーを3軒試してみる', 'マスターと会話できる店を見つける', '週1で同じ店に通う', '顔と名前を覚えてもらう', '「いつもの」が通じるようになる'],
+  '10年ぶりの友人に連絡する': ['連絡先（SNS・電話番号）を探す', '近況報告のメッセージを送る', '返信が来たら会う約束をする', '実際に再会する'],
+  'noteに記事を100本書く': ['noteアカウントを作る', '最初の1本を書いて公開する', '10本達成', '50本達成', '100本達成'],
+  '写真集を自費出版する': ['テーマを決める', '写真を100枚撮りためる', '自費出版サービスを比較・選ぶ', '編集・レイアウトする', '注文して完成'],
+  'アプリを1本リリースする': ['作るアプリのアイデアを決める', '技術スタックを選ぶ', 'MVP（最小版）を2週間で作る', 'ユーザーにフィードバックをもらう', 'ストアに申請してリリース'],
+  '副業で月1万円稼ぐ': ['副業の種類を決める', 'プラットフォームに登録する', '最初の案件・販売を始める', '初売上を達成する', '月1万円を継続的に稼ぐ'],
+  '資産1000万円を達成する': ['現在の総資産を把握する', '毎月の貯蓄目標額を決める', '投資を始める（インデックス投信など）', '500万達成', '1000万達成'],
+  'ペットを飼う': ['飼いたいペットを決める', '生活環境・費用を調べる', 'ペットショップ・譲渡会に行く', '迎え入れる準備をする', '家族の一員として迎え入れる'],
+  '引っ越して新しい街に住む': ['住みたいエリア・条件を絞る', 'SUUMOなどで物件を探す', '気になる物件を3件内見する', '契約する', '引っ越して新生活スタート'],
+  '毎日日記をつける': ['日記帳またはアプリを選ぶ', '1週間続ける', '1か月継続する', '3か月継続する', '習慣として完全定着する'],
+}
+
 const PRESETS = [
   { category: 'travel',  title: '海外に一人旅をする',        targetAge: '' },
   { category: 'travel',  title: '富士山に登る',              targetAge: '50' },
@@ -68,12 +95,13 @@ export default function AppPage() {
   const [birthYear, setBirthYear]   = useState(() => localStorage.getItem('kiseki_birthYear') || '')
   const [items, setItems]           = useState(() => JSON.parse(localStorage.getItem('kiseki_items') || '[]'))
   const [showForm, setShowForm]     = useState(false)
-  const [formMode, setFormMode]     = useState('preset') // 'preset' | 'custom'
+  const [formMode, setFormMode]     = useState('preset')
   const [filterCat, setFilterCat]   = useState('all')
   const [filter, setFilter]         = useState('all')
   const [newItem, setNewItem]       = useState({ title: '', targetAge: '', category: 'other', memo: '' })
   const [celebrated, setCelebrated] = useState(null)
   const [setupDone, setSetupDone]   = useState(() => !!localStorage.getItem('kiseki_birthYear'))
+  const [openSteps, setOpenSteps]   = useState(new Set())
 
   const stats = birthYear ? calcRemaining(parseInt(birthYear)) : null
 
@@ -93,6 +121,7 @@ export default function AppPage() {
   function addItem(overrides = {}) {
     const data = { ...newItem, ...overrides }
     if (!data.title.trim()) return
+    const stepTexts = PRESET_STEPS[data.title.trim()] || []
     const item = {
       id: Date.now(),
       title: data.title.trim(),
@@ -101,10 +130,14 @@ export default function AppPage() {
       memo: data.memo || '',
       done: false,
       createdAt: new Date().toISOString(),
+      steps: stepTexts.map(text => ({ text, done: false })),
     }
     setItems(prev => [item, ...prev])
     setNewItem({ title: '', targetAge: '', category: 'other', memo: '' })
     setShowForm(false)
+    if (item.steps.length > 0) {
+      setOpenSteps(prev => new Set([...prev, item.id]))
+    }
   }
 
   function addPreset(preset) {
@@ -118,6 +151,23 @@ export default function AppPage() {
       return { ...item, done: !item.done }
     }))
     setTimeout(() => setCelebrated(null), 2000)
+  }
+
+  function toggleStep(itemId, stepIndex) {
+    setItems(prev => prev.map(item => {
+      if (item.id !== itemId) return item
+      const steps = item.steps.map((s, i) => i === stepIndex ? { ...s, done: !s.done } : s)
+      return { ...item, steps }
+    }))
+  }
+
+  function toggleStepsOpen(id) {
+    setOpenSteps(prev => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
   }
 
   function deleteItem(id) {
@@ -233,6 +283,9 @@ export default function AppPage() {
                 <div className="ap-decade-label">{decade}</div>
                 {decadeItems.map(item => {
                   const cat = CATEGORIES.find(c => c.id === item.category)
+                  const steps = item.steps || []
+                  const doneCnt = steps.filter(s => s.done).length
+                  const isOpen = openSteps.has(item.id)
                   return (
                     <div key={item.id} className={'ap-item' + (item.done ? ' ap-item-done' : '') + (celebrated === item.id ? ' ap-item-celebrate' : '')}>
                       <button className="ap-check" onClick={() => toggleDone(item.id)}>
@@ -245,6 +298,32 @@ export default function AppPage() {
                           {item.targetAge && <span className="ap-item-age">{item.targetAge}歳まで</span>}
                         </div>
                         {item.memo && <div className="ap-item-memo">{item.memo}</div>}
+
+                        {/* ロードマップ */}
+                        {steps.length > 0 && (
+                          <button className="ap-steps-bar" onClick={() => toggleStepsOpen(item.id)}>
+                            <span className="ap-steps-label">📋 ロードマップ</span>
+                            <div className="ap-steps-mini-track">
+                              <div className="ap-steps-mini-fill" style={{ width: (doneCnt / steps.length * 100) + '%' }} />
+                            </div>
+                            <span className="ap-steps-count">{doneCnt}/{steps.length}</span>
+                            <span className="ap-steps-toggle">{isOpen ? '▲' : '▼'}</span>
+                          </button>
+                        )}
+                        {isOpen && steps.length > 0 && (
+                          <div className="ap-steps-list">
+                            {steps.map((step, si) => (
+                              <button
+                                key={si}
+                                className={'ap-step' + (step.done ? ' ap-step-done' : '')}
+                                onClick={() => toggleStep(item.id, si)}
+                              >
+                                <span className="ap-step-check">{step.done ? '✅' : '○'}</span>
+                                <span className="ap-step-text">{step.text}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       <button className="ap-delete" onClick={() => deleteItem(item.id)}>×</button>
                     </div>
@@ -265,7 +344,6 @@ export default function AppPage() {
               <button className="ap-modal-close" onClick={() => setShowForm(false)}>×</button>
             </div>
 
-            {/* タブ切替 */}
             <div className="ap-mode-tabs">
               <button
                 className={'ap-mode-tab' + (formMode === 'preset' ? ' active' : '')}
@@ -279,7 +357,6 @@ export default function AppPage() {
 
             {formMode === 'preset' ? (
               <div className="ap-preset-wrap">
-                {/* カテゴリフィルター */}
                 <div className="ap-preset-cats">
                   <button
                     className={'ap-preset-cat' + (filterCat === 'all' ? ' active' : '')}
@@ -293,11 +370,11 @@ export default function AppPage() {
                     >{c.emoji}</button>
                   ))}
                 </div>
-                {/* プリセット一覧 */}
                 <div className="ap-preset-list">
                   {PRESETS.filter(p => filterCat === 'all' || p.category === filterCat).map((p, i) => {
                     const cat = CATEGORIES.find(c => c.id === p.category)
                     const already = items.some(it => it.title === p.title)
+                    const hasSteps = !!PRESET_STEPS[p.title]
                     return (
                       <button
                         key={i}
@@ -306,7 +383,12 @@ export default function AppPage() {
                         disabled={already}
                       >
                         <span className="ap-preset-emoji">{cat ? cat.emoji : '⭐'}</span>
-                        <span className="ap-preset-title">{p.title}</span>
+                        <div className="ap-preset-body">
+                          <span className="ap-preset-title">{p.title}</span>
+                          {hasSteps && !already && (
+                            <span className="ap-preset-steps-hint">📋 ロードマップ付き</span>
+                          )}
+                        </div>
                         <span className="ap-preset-check">{already ? '✅' : '+'}</span>
                       </button>
                     )

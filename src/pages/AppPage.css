@@ -1,0 +1,395 @@
+.ap-wrap {
+  background: #0a0a0f;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* セットアップ画面 */
+.ap-setup {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0f;
+  padding: 24px;
+}
+.ap-setup-card {
+  background: #13131a;
+  border: 1px solid #2d2d3a;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+.ap-setup-card h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 20px 0 12px;
+}
+.ap-setup-card p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+/* ロゴ */
+.ap-logo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #7c6aff;
+  cursor: pointer;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* ヘッダー */
+.ap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #1e1e2a;
+}
+
+/* タイムライン */
+.ap-timeline {
+  padding: 20px 24px;
+  border-bottom: 1px solid #1e1e2a;
+}
+.ap-tl-info {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.ap-tl-age {
+  font-size: 13px;
+  color: #64748b;
+}
+.ap-tl-days {
+  font-size: 15px;
+  color: #e2e8f0;
+}
+.ap-tl-days strong {
+  color: #7c6aff;
+  font-size: 22px;
+  font-weight: 800;
+}
+.ap-tl-years {
+  font-size: 13px;
+  color: #64748b;
+}
+.ap-tl-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 99px;
+  overflow: hidden;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+.ap-tl-used {
+  background: #2d2d3a;
+  border-radius: 99px 0 0 99px;
+}
+.ap-tl-rest {
+  background: linear-gradient(90deg, #7c6aff, #a78bfa);
+  border-radius: 0 99px 99px 0;
+  flex: 1;
+}
+.ap-tl-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #475569;
+}
+
+/* サマリー */
+.ap-summary {
+  display: flex;
+  padding: 16px 24px;
+  border-bottom: 1px solid #1e1e2a;
+  gap: 0;
+}
+.ap-sum-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #1e1e2a;
+}
+.ap-sum-item:last-child {
+  border-right: none;
+}
+.ap-sum-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f1f5f9;
+}
+.ap-sum-done {
+  color: #7c6aff;
+}
+.ap-sum-label {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* フィルター */
+.ap-filter {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #1e1e2a;
+}
+.ap-filter-btn {
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  background: #13131a;
+  border: 1px solid #2d2d3a;
+  color: #64748b;
+  transition: all 0.15s;
+}
+.ap-filter-btn.active {
+  background: #7c6aff;
+  border-color: #7c6aff;
+  color: #fff;
+}
+
+/* リスト */
+.ap-list {
+  padding: 0 24px;
+}
+.ap-empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 14px;
+}
+.ap-empty p:first-child {
+  font-size: 18px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+/* 年代グループ */
+.ap-decade {
+  margin-top: 28px;
+}
+.ap-decade-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #7c6aff;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1e1e2a;
+}
+
+/* アイテム */
+.ap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #1e1e2a;
+  transition: opacity 0.2s;
+}
+.ap-item-done {
+  opacity: 0.5;
+}
+.ap-item-celebrate {
+  animation: celebrate 0.4s ease;
+}
+@keyframes celebrate {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.ap-check {
+  background: none;
+  font-size: 22px;
+  padding: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+.ap-item-body {
+  flex: 1;
+  min-width: 0;
+}
+.ap-item-title {
+  font-size: 15px;
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.ap-item-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ap-item-cat {
+  font-size: 12px;
+  color: #64748b;
+}
+.ap-item-age {
+  font-size: 12px;
+  color: #7c6aff;
+  background: rgba(124, 106, 255, 0.1);
+  padding: 1px 8px;
+  border-radius: 99px;
+}
+.ap-item-memo {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.ap-delete {
+  background: none;
+  color: #475569;
+  font-size: 18px;
+  padding: 0 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.ap-item:hover .ap-delete {
+  opacity: 1;
+}
+
+/* ボタン */
+.ap-btn-primary {
+  background: #7c6aff;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+  width: 100%;
+  margin-top: 8px;
+}
+.ap-btn-primary:hover {
+  opacity: 0.85;
+}
+.ap-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.ap-btn-start {
+  margin-top: 24px;
+  width: auto;
+  padding: 12px 28px;
+}
+.ap-btn-add {
+  background: #7c6aff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* モーダル */
+.ap-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding: 0 0 0 0;
+}
+.ap-modal {
+  background: #13131a;
+  border: 1px solid #2d2d3a;
+  border-radius: 24px 24px 0 0;
+  padding: 28px 24px 48px;
+  width: 100%;
+  max-width: 560px;
+}
+.ap-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.ap-modal-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.ap-modal-close {
+  background: none;
+  color: #64748b;
+  font-size: 22px;
+  padding: 0 4px;
+}
+.ap-form-row {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+.ap-form-col {
+  flex: 1;
+}
+.ap-form-label {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* 入力 */
+.ap-input {
+  width: 100%;
+  background: #1a1a24;
+  border: 1px solid #2d2d3a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #f1f5f9;
+  outline: none;
+}
+.ap-input:focus {
+  border-color: #7c6aff;
+}
+.ap-select {
+  width: 100%;
+  background: #1a1a24;
+  border: 1px solid #2d2d3a;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #e2e8f0;
+  outline: none;
+  margin-bottom: 12px;
+  appearance: none;
+}
+.ap-select:focus {
+  border-color: #7c6aff;
+}
+.ap-textarea {
+  width: 100%;
+  background: #1a1a24;
+  border: 1px solid #2d2d3a;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #e2e8f0;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  margin-top: 4px;
+}
+.ap-textarea:focus {
+  border-color: #7c6aff;
+}

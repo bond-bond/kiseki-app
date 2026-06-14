@@ -1,5 +1,5 @@
 .ap-wrap {
-  background: #0a0a0f;
+  background: #1a1a2e;
   min-height: 100vh;
   padding-bottom: 60px;
 }
@@ -10,11 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0f;
+  background: #1a1a2e;
   padding: 24px;
 }
 .ap-setup-card {
-  background: #13131a;
+  background: #22223a;
   border: 1px solid #2d2d3a;
   border-radius: 24px;
   padding: 48px 40px;
@@ -148,7 +148,7 @@
   padding: 6px 16px;
   border-radius: 99px;
   font-size: 13px;
-  background: #13131a;
+  background: #22223a;
   border: 1px solid #2d2d3a;
   color: #64748b;
   transition: all 0.15s;
@@ -309,7 +309,7 @@
   padding: 0 0 0 0;
 }
 .ap-modal {
-  background: #13131a;
+  background: #22223a;
   border: 1px solid #2d2d3a;
   border-radius: 24px 24px 0 0;
   padding: 28px 24px 48px;
@@ -351,7 +351,7 @@
 /* 入力 */
 .ap-input {
   width: 100%;
-  background: #1a1a24;
+  background: #1e1e36;
   border: 1px solid #2d2d3a;
   border-radius: 10px;
   padding: 14px 16px;
@@ -364,7 +364,7 @@
 }
 .ap-select {
   width: 100%;
-  background: #1a1a24;
+  background: #1e1e36;
   border: 1px solid #2d2d3a;
   border-radius: 10px;
   padding: 12px 14px;
@@ -379,7 +379,7 @@
 }
 .ap-textarea {
   width: 100%;
-  background: #1a1a24;
+  background: #1e1e36;
   border: 1px solid #2d2d3a;
   border-radius: 10px;
   padding: 12px 16px;
@@ -392,4 +392,106 @@
 }
 .ap-textarea:focus {
   border-color: #7c6aff;
+}
+
+/* タブ切替 */
+.ap-mode-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  background: #1e1e36;
+  border-radius: 10px;
+  padding: 4px;
+}
+.ap-mode-tab {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: none;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.ap-mode-tab.active {
+  background: #7c6aff;
+  color: #fff;
+}
+
+/* プリセット */
+.ap-preset-wrap {
+  max-height: 55vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ap-preset-cats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.ap-preset-cat {
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 13px;
+  background: #1e1e36;
+  border: 1px solid #2d2d3a;
+  color: #64748b;
+  transition: all 0.15s;
+}
+.ap-preset-cat.active {
+  background: #7c6aff;
+  border-color: #7c6aff;
+  color: #fff;
+}
+.ap-preset-list {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+.ap-preset-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #1e1e36;
+  border: 1px solid #2d2d3a;
+  border-radius: 12px;
+  text-align: left;
+  transition: all 0.15s;
+  width: 100%;
+}
+.ap-preset-item:hover:not(:disabled) {
+  border-color: #7c6aff;
+  background: rgba(124, 106, 255, 0.08);
+}
+.ap-preset-item:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.ap-preset-emoji {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.ap-preset-title {
+  flex: 1;
+  font-size: 14px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+.ap-preset-check {
+  font-size: 16px;
+  color: #7c6aff;
+  flex-shrink: 0;
+}
+.ap-preset-added .ap-preset-title {
+  color: #64748b;
+}
+.ap-custom-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

@@ -1,5 +1,5 @@
 .ap-wrap {
-  background: #1b2548;
+  background: #f0f4ff;
   min-height: 100vh;
   padding-bottom: 60px;
 }
@@ -10,27 +10,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1b2548;
+  background: #f0f4ff;
   padding: 24px;
 }
 .ap-setup-card {
-  background: #243060;
-  border: 1px solid #3040a0;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 24px;
   padding: 48px 40px;
   max-width: 400px;
   width: 100%;
   text-align: center;
+  box-shadow: 0 4px 24px rgba(124, 106, 255, 0.08);
 }
 .ap-setup-card h1 {
   font-size: 22px;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #1a2040;
   margin: 20px 0 12px;
 }
 .ap-setup-card p {
   font-size: 14px;
-  color: #64748b;
+  color: #6070a0;
   margin-bottom: 28px;
   line-height: 1.7;
 }
@@ -52,13 +53,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px 16px;
-  border-bottom: 1px solid #1e2a5a;
+  border-bottom: 1px solid #e8eeff;
+  background: #ffffff;
 }
 
 /* タイムライン */
 .ap-timeline {
   padding: 20px 24px;
-  border-bottom: 1px solid #1e2a5a;
+  border-bottom: 1px solid #e8eeff;
+  background: #ffffff;
 }
 .ap-tl-info {
   display: flex;
@@ -69,11 +72,11 @@
 }
 .ap-tl-age {
   font-size: 13px;
-  color: #64748b;
+  color: #8090b0;
 }
 .ap-tl-days {
   font-size: 15px;
-  color: #e2e8f0;
+  color: #1a2040;
 }
 .ap-tl-days strong {
   color: #7c6aff;
@@ -82,7 +85,7 @@
 }
 .ap-tl-years {
   font-size: 13px;
-  color: #64748b;
+  color: #8090b0;
 }
 .ap-tl-bar {
   display: flex;
@@ -93,7 +96,7 @@
   margin-bottom: 6px;
 }
 .ap-tl-used {
-  background: #3040a0;
+  background: #dde5ff;
   border-radius: 99px 0 0 99px;
 }
 .ap-tl-rest {
@@ -105,20 +108,21 @@
   display: flex;
   justify-content: space-between;
   font-size: 10px;
-  color: #475569;
+  color: #a0aec0;
 }
 
 /* サマリー */
 .ap-summary {
   display: flex;
   padding: 16px 24px;
-  border-bottom: 1px solid #1e2a5a;
+  border-bottom: 1px solid #e8eeff;
   gap: 0;
+  background: #ffffff;
 }
 .ap-sum-item {
   flex: 1;
   text-align: center;
-  border-right: 1px solid #1e2a5a;
+  border-right: 1px solid #e8eeff;
 }
 .ap-sum-item:last-child {
   border-right: none;
@@ -127,30 +131,31 @@
   display: block;
   font-size: 28px;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #1a2040;
 }
 .ap-sum-done {
   color: #7c6aff;
 }
 .ap-sum-label {
   font-size: 11px;
-  color: #64748b;
+  color: #8090b0;
 }
 
 /* フィルター */
 .ap-filter {
   display: flex;
   gap: 8px;
-  padding: 16px 24px;
-  border-bottom: 1px solid #1e2a5a;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e8eeff;
+  background: #f8faff;
 }
 .ap-filter-btn {
   padding: 6px 16px;
   border-radius: 99px;
   font-size: 13px;
-  background: #243060;
-  border: 1px solid #3040a0;
-  color: #64748b;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
+  color: #6070a0;
   transition: all 0.15s;
 }
 .ap-filter-btn.active {
@@ -166,13 +171,13 @@
 .ap-empty {
   text-align: center;
   padding: 60px 24px;
-  color: #64748b;
+  color: #8090b0;
   line-height: 1.8;
   font-size: 14px;
 }
 .ap-empty p:first-child {
   font-size: 18px;
-  color: #94a3b8;
+  color: #4a5580;
   margin-bottom: 12px;
 }
 
@@ -187,7 +192,7 @@
   color: #7c6aff;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #1e2a5a;
+  border-bottom: 1px solid #e8eeff;
 }
 
 /* アイテム */
@@ -196,11 +201,11 @@
   align-items: flex-start;
   gap: 12px;
   padding: 16px 0;
-  border-bottom: 1px solid #1e2a5a;
+  border-bottom: 1px solid #e8eeff;
   transition: opacity 0.2s;
 }
 .ap-item-done {
-  opacity: 0.5;
+  opacity: 0.45;
 }
 .ap-item-celebrate {
   animation: celebrate 0.4s ease;
@@ -224,7 +229,7 @@
 }
 .ap-item-title {
   font-size: 15px;
-  color: #e2e8f0;
+  color: #1a2040;
   font-weight: 600;
   margin-bottom: 6px;
   line-height: 1.4;
@@ -236,7 +241,7 @@
 }
 .ap-item-cat {
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
 }
 .ap-item-age {
   font-size: 12px;
@@ -247,13 +252,13 @@
 }
 .ap-item-memo {
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
   margin-top: 6px;
   line-height: 1.6;
 }
 .ap-delete {
   background: none;
-  color: #475569;
+  color: #c0cce0;
   font-size: 18px;
   padding: 0 4px;
   flex-shrink: 0;
@@ -301,20 +306,20 @@
 .ap-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(20, 30, 80, 0.4);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 100;
-  padding: 0 0 0 0;
 }
 .ap-modal {
-  background: #243060;
-  border: 1px solid #3040a0;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 24px 24px 0 0;
   padding: 28px 24px 48px;
   width: 100%;
   max-width: 560px;
+  box-shadow: 0 -4px 32px rgba(124, 106, 255, 0.12);
 }
 .ap-modal-header {
   display: flex;
@@ -325,11 +330,11 @@
 .ap-modal-header h2 {
   font-size: 17px;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #1a2040;
 }
 .ap-modal-close {
   background: none;
-  color: #64748b;
+  color: #a0aec0;
   font-size: 22px;
   padding: 0 4px;
 }
@@ -344,19 +349,19 @@
 .ap-form-label {
   display: block;
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
   margin-bottom: 6px;
 }
 
 /* 入力 */
 .ap-input {
   width: 100%;
-  background: #1c2450;
-  border: 1px solid #3040a0;
+  background: #f4f7ff;
+  border: 1px solid #e0e8ff;
   border-radius: 10px;
   padding: 14px 16px;
   font-size: 15px;
-  color: #f1f5f9;
+  color: #1a2040;
   outline: none;
 }
 .ap-input:focus {
@@ -364,12 +369,12 @@
 }
 .ap-select {
   width: 100%;
-  background: #1c2450;
-  border: 1px solid #3040a0;
+  background: #f4f7ff;
+  border: 1px solid #e0e8ff;
   border-radius: 10px;
   padding: 12px 14px;
   font-size: 14px;
-  color: #e2e8f0;
+  color: #1a2040;
   outline: none;
   margin-bottom: 12px;
   appearance: none;
@@ -379,12 +384,12 @@
 }
 .ap-textarea {
   width: 100%;
-  background: #1c2450;
-  border: 1px solid #3040a0;
+  background: #f4f7ff;
+  border: 1px solid #e0e8ff;
   border-radius: 10px;
   padding: 12px 16px;
   font-size: 14px;
-  color: #e2e8f0;
+  color: #1a2040;
   outline: none;
   resize: none;
   font-family: inherit;
@@ -399,7 +404,7 @@
   display: flex;
   gap: 0;
   margin-bottom: 20px;
-  background: #1c2450;
+  background: #f0f4ff;
   border-radius: 10px;
   padding: 4px;
 }
@@ -408,7 +413,7 @@
   padding: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: #64748b;
+  color: #8090b0;
   background: none;
   border-radius: 8px;
   transition: all 0.15s;
@@ -435,9 +440,9 @@
   padding: 6px 14px;
   border-radius: 99px;
   font-size: 13px;
-  background: #1c2450;
-  border: 1px solid #3040a0;
-  color: #64748b;
+  background: #f4f7ff;
+  border: 1px solid #e0e8ff;
+  color: #6070a0;
   transition: all 0.15s;
 }
 .ap-preset-cat.active {
@@ -457,8 +462,8 @@
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  background: #1c2450;
-  border: 1px solid #3040a0;
+  background: #f4f7ff;
+  border: 1px solid #e0e8ff;
   border-radius: 12px;
   text-align: left;
   transition: all 0.15s;
@@ -466,10 +471,10 @@
 }
 .ap-preset-item:hover:not(:disabled) {
   border-color: #7c6aff;
-  background: rgba(124, 106, 255, 0.08);
+  background: rgba(124, 106, 255, 0.06);
 }
 .ap-preset-item:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: default;
 }
 .ap-preset-emoji {
@@ -485,7 +490,7 @@
 }
 .ap-preset-title {
   font-size: 14px;
-  color: #e2e8f0;
+  color: #1a2040;
   font-weight: 500;
   text-align: left;
 }
@@ -501,7 +506,7 @@
   flex-shrink: 0;
 }
 .ap-preset-added .ap-preset-title {
-  color: #64748b;
+  color: #a0aec0;
 }
 .ap-custom-wrap {
   display: flex;
@@ -516,25 +521,25 @@
   gap: 8px;
   margin-top: 10px;
   padding: 8px 12px;
-  background: #1c2450;
-  border: 1px solid #3040a0;
+  background: #f0f4ff;
+  border: 1px solid #e0e8ff;
   border-radius: 8px;
   width: 100%;
   text-align: left;
   transition: background 0.15s;
 }
 .ap-steps-bar:hover {
-  background: rgba(124, 106, 255, 0.1);
+  background: rgba(124, 106, 255, 0.08);
 }
 .ap-steps-label {
   font-size: 12px;
-  color: #94a3b8;
+  color: #8090b0;
   flex-shrink: 0;
 }
 .ap-steps-mini-track {
   flex: 1;
   height: 4px;
-  background: #3040a0;
+  background: #dde5ff;
   border-radius: 99px;
   overflow: hidden;
 }
@@ -552,7 +557,7 @@
 }
 .ap-steps-toggle {
   font-size: 10px;
-  color: #64748b;
+  color: #a0aec0;
   flex-shrink: 0;
 }
 .ap-steps-list {
@@ -580,15 +585,15 @@
   font-size: 14px;
   flex-shrink: 0;
   margin-top: 1px;
-  color: #64748b;
+  color: #a0aec0;
 }
 .ap-step-text {
   font-size: 13px;
-  color: #94a3b8;
+  color: #4a5580;
   line-height: 1.5;
 }
 .ap-step-done .ap-step-text {
-  color: #64748b;
+  color: #a0aec0;
   text-decoration: line-through;
 }
 .ap-step-done .ap-step-check {

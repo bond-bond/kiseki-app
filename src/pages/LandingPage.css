@@ -1,6 +1,6 @@
 .lp-wrap {
-  background: #111a3a;
-  color: #e2e8f0;
+  background: #f0f4ff;
+  color: #1a2040;
   min-height: 100vh;
 }
 
@@ -28,7 +28,7 @@
   font-size: 42px;
   font-weight: 800;
   line-height: 1.25;
-  color: #f1f5f9;
+  color: #1a2040;
   margin-bottom: 20px;
   letter-spacing: -1px;
 }
@@ -37,7 +37,7 @@
 }
 .lp-sub {
   font-size: 16px;
-  color: #94a3b8;
+  color: #4a5580;
   line-height: 1.7;
   margin-bottom: 36px;
 }
@@ -46,21 +46,22 @@
 }
 .lp-note {
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
 }
 
 /* タイムラインプレビュー */
 .lp-preview {
-  background: #13131a;
-  border: 1px solid #2d2d3a;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 16px;
   padding: 24px;
   margin-top: 48px;
   text-align: left;
+  box-shadow: 0 4px 20px rgba(124, 106, 255, 0.08);
 }
 .lp-preview-label {
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
   margin-bottom: 16px;
   letter-spacing: 1px;
 }
@@ -75,12 +76,12 @@
   gap: 2px;
 }
 .lp-tl-used {
-  background: #2d2d3a;
+  background: #dde5ff;
   display: flex;
   align-items: center;
   padding: 0 12px;
   font-size: 12px;
-  color: #64748b;
+  color: #8090b0;
   border-radius: 6px 0 0 6px;
 }
 .lp-tl-remaining {
@@ -100,7 +101,7 @@
 }
 .lp-cd-item {
   flex: 1;
-  background: #1a1a24;
+  background: #f4f7ff;
   border-radius: 10px;
   padding: 14px;
   text-align: center;
@@ -114,13 +115,13 @@
 }
 .lp-cd-label {
   font-size: 11px;
-  color: #64748b;
+  color: #8090b0;
 }
 
 /* セクション共通 */
 .lp-section {
   padding: 80px 24px;
-  border-top: 1px solid #1e1e2a;
+  border-top: 1px solid #e8eeff;
 }
 .lp-inner {
   max-width: 760px;
@@ -139,7 +140,7 @@
 .lp-section h2 {
   font-size: 28px;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #1a2040;
   margin-bottom: 40px;
   line-height: 1.3;
 }
@@ -151,12 +152,12 @@
   gap: 12px;
 }
 .lp-card {
-  background: #13131a;
-  border: 1px solid #2d2d3a;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 12px;
   padding: 20px;
   font-size: 14px;
-  color: #94a3b8;
+  color: #4a5580;
   line-height: 1.5;
 }
 @media (max-width: 560px) {
@@ -172,8 +173,8 @@
   gap: 16px;
 }
 .lp-feature {
-  background: #13131a;
-  border: 1px solid #2d2d3a;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 16px;
   padding: 28px 24px;
 }
@@ -184,7 +185,7 @@
 .lp-feature h3 {
   font-size: 16px;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #1a2040;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -193,7 +194,7 @@
 }
 .lp-feature p {
   font-size: 13px;
-  color: #94a3b8;
+  color: #4a5580;
   line-height: 1.7;
 }
 .lp-premium-badge {
@@ -218,15 +219,15 @@
   gap: 16px;
 }
 .lp-price-card {
-  background: #13131a;
-  border: 1px solid #2d2d3a;
+  background: #ffffff;
+  border: 1px solid #e0e8ff;
   border-radius: 20px;
   padding: 32px 28px;
   position: relative;
 }
 .lp-price-card-premium {
   border-color: #7c6aff;
-  background: linear-gradient(180deg, #1a1530 0%, #13131a 100%);
+  background: linear-gradient(180deg, #f5f2ff 0%, #ffffff 100%);
 }
 .lp-price-badge {
   position: absolute;
@@ -244,19 +245,19 @@
 .lp-price-name {
   font-size: 13px;
   font-weight: 700;
-  color: #64748b;
+  color: #8090b0;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
 .lp-price-amount {
   font-size: 40px;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #1a2040;
   margin-bottom: 24px;
 }
 .lp-price-amount span {
   font-size: 16px;
-  color: #64748b;
+  color: #8090b0;
 }
 .lp-price-list {
   list-style: none;
@@ -264,9 +265,9 @@
 }
 .lp-price-list li {
   font-size: 13px;
-  color: #94a3b8;
+  color: #4a5580;
   padding: 8px 0;
-  border-bottom: 1px solid #1e1e2a;
+  border-bottom: 1px solid #e8eeff;
   line-height: 1.5;
 }
 @media (max-width: 560px) {
@@ -313,7 +314,7 @@
 
 /* Final */
 .lp-final p {
-  color: #94a3b8;
+  color: #4a5580;
   margin-top: 8px;
 }
 
@@ -328,8 +329,8 @@
 .lp-footer {
   text-align: center;
   padding: 32px 24px;
-  border-top: 1px solid #1e1e2a;
+  border-top: 1px solid #e8eeff;
   font-size: 12px;
-  color: #64748b;
+  color: #a0aec0;
   letter-spacing: 2px;
 }

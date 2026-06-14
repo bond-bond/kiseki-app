@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './AppPage.css'
 
@@ -90,6 +90,28 @@ function getDecade(targetAge) {
   return '70代以降'
 }
 
+async function compressImage(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader()
+    reader.onload = e => {
+      const img = new Image()
+      img.onload = () => {
+        const MAX = 800
+        let w = img.width, h = img.height
+        if (w > MAX) { h = Math.round(h * MAX / w); w = MAX }
+        if (h > MAX) { w = Math.round(w * MAX / h); h = MAX }
+        const canvas = document.createElement('canvas')
+        canvas.width = w
+        canvas.height = h
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+        resolve(canvas.toDataURL('image/jpeg', 0.75))
+      }
+      img.src = e.target.result
+    }
+    reader.readAsDataURL(file)
+  })
+}
+
 export default function AppPage() {
   const navigate = useNavigate()
   const [birthYear, setBirthYear]   = useState(() => localStorage.getItem('kiseki_birthYear') || '')
@@ -102,6 +124,9 @@ export default function AppPage() {
   const [celebrated, setCelebrated] = useState(null)
   const [setupDone, setSetupDone]   = useState(() => !!localStorage.getItem('kiseki_birthYear'))
   const [openSteps, setOpenSteps]   = useState(new Set())
+  const [lightboxSrc, setLightboxSrc] = useState(null)
+  const fileInputRef  = useRef(null)
+  const uploadTarget  = useRef(null)
 
   const stats = birthYear ? calcRemaining(parseInt(birthYear)) : null
 
@@ -131,6 +156,8 @@ export default function AppPage() {
       done: false,
       createdAt: new Date().toISOString(),
       steps: stepTexts.map(text => ({ text, done: false })),
+      visionImage: null,
+      achieveImage: null,
     }
     setItems(prev => [item, ...prev])
     setNewItem({ title: '', targetAge: '', category: 'other', memo: '' })
@@ -174,6 +201,31 @@ export default function AppPage() {
     setItems(prev => prev.filter(item => item.id !== id))
   }
 
+  function triggerUpload(id, type) {
+    uploadTarget.current = { id, type }
+    fileInputRef.current.click()
+  }
+
+  async function handleFileChange(e) {
+    const file = e.target.files[0]
+    if (!file || !uploadTarget.current) return
+    const compressed = await compressImage(file)
+    const { id, type } = uploadTarget.current
+    setItems(prev => prev.map(item => {
+      if (item.id !== id) return item
+      return { ...item, [type === 'vision' ? 'visionImage' : 'achieveImage']: compressed }
+    }))
+    e.target.value = ''
+    uploadTarget.current = null
+  }
+
+  function removeImage(id, type) {
+    setItems(prev => prev.map(item => {
+      if (item.id !== id) return item
+      return { ...item, [type === 'vision' ? 'visionImage' : 'achieveImage']: null }
+    }))
+  }
+
   const filtered = filter === 'all' ? items
     : filter === 'done' ? items.filter(i => i.done)
     : items.filter(i => !i.done)
@@ -210,6 +262,15 @@ export default function AppPage() {
 
   return (
     <div className="ap-wrap">
+
+      {/* hidden file input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        style={{ display: 'none' }}
+        onChange={handleFileChange}
+      />
 
       {/* ヘッダー */}
       <header className="ap-header">
@@ -264,7 +325,7 @@ export default function AppPage() {
         ))}
       </div>
 
-      {/* バケットリスト（年代別） */}
+      {/* バケットリスト */}
       <div className="ap-list">
         {items.length === 0 ? (
           <div className="ap-empty">
@@ -286,6 +347,8 @@ export default function AppPage() {
                   const steps = item.steps || []
                   const doneCnt = steps.filter(s => s.done).length
                   const isOpen = openSteps.has(item.id)
+                  const hasVision = !!item.visionImage
+                  const hasAchieve = !!item.achieveImage
                   return (
                     <div key={item.id} className={'ap-item' + (item.done ? ' ap-item-done' : '') + (celebrated === item.id ? ' ap-item-celebrate' : '')}>
                       <button className="ap-check" onClick={() => toggleDone(item.id)}>
@@ -298,6 +361,53 @@ export default function AppPage() {
                           {item.targetAge && <span className="ap-item-age">{item.targetAge}歳まで</span>}
                         </div>
                         {item.memo && <div className="ap-item-memo">{item.memo}</div>}
+
+                        {/* 画像エリア */}
+                        <div className="ap-images">
+                          {/* ビジョン画像 */}
+                          <div className="ap-img-slot">
+                            {hasVision ? (
+                              <div className="ap-img-thumb-wrap">
+                                <img
+                                  src={item.visionImage}
+                                  className="ap-img-thumb"
+                                  alt="ビジョン"
+                                  onClick={() => setLightboxSrc(item.visionImage)}
+                                />
+                                <span className="ap-img-badge">BEFORE</span>
+                                <button className="ap-img-remove" onClick={() => removeImage(item.id, 'vision')}>×</button>
+                              </div>
+                            ) : (
+                              <button className="ap-img-add" onClick={() => triggerUpload(item.id, 'vision')}>
+                                <span>🖼️</span>
+                                <span>ビジョン</span>
+                              </button>
+                            )}
+                          </div>
+
+                          {/* 達成写真（done時のみ解放） */}
+                          {item.done && (
+                            <div className="ap-img-slot">
+                              {hasAchieve ? (
+                                <div className="ap-img-thumb-wrap">
+                                  <img
+                                    src={item.achieveImage}
+                                    className="ap-img-thumb"
+                                    alt="達成写真"
+                                    onClick={() => setLightboxSrc(item.achieveImage)}
+                                  />
+                                  <span className="ap-img-badge ap-img-badge-after">AFTER</span>
+                                  <button className="ap-img-remove" onClick={() => removeImage(item.id, 'achieve')}>×</button>
+                                </div>
+                              ) : (
+                                <button className="ap-img-add ap-img-add-achieve" onClick={() => triggerUpload(item.id, 'achieve')}>
+                                  <span>📸</span>
+                                  <span>達成写真</span>
+                                </button>
+                              )}
+                            </div>
+                          )}
+                        </div>
 
                         {/* ロードマップ */}
                         {steps.length > 0 && (
@@ -448,6 +558,14 @@ export default function AppPage() {
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* ライトボックス */}
+      {lightboxSrc && (
+        <div className="ap-lightbox" onClick={() => setLightboxSrc(null)}>
+          <img src={lightboxSrc} className="ap-lightbox-img" alt="拡大" />
+          <button className="ap-lightbox-close">×</button>
         </div>
       )}
     </div>
